@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Quiz</title>
+  </head>
+  <body>
+    <main>
+      <article class="quiz" id="quiz">
+        <div class="container">
+          <div class="quiz-question" id="quiz-question">
+            <div class="question-head">
+              <h3 class="question-number" id="question-number">
+                Вопрос № 0 из 0
+              </h3>
+              <h3 class="question-timer" id="question-timer">00:00</h3>
+            </div>
+            <h2 class="question-title" id="question-title">Текст вопроса</h2>
+            <ul class="question-answers-list" id="answers-list">
+              <li class="question-answer">
+                <input
+                  class="question-input"
+                  type="radio"
+                  id="question-answer-1"
+                  name="answer"
+                  value="1"
+                />
+                <label class="question-label" for="question-answer-1"
+                  >Ответ 1</label
+                >
+              </li>
+              <li class="question-answer">
+                <input
+                  class="question-input"
+                  type="radio"
+                  id="question-answer-2"
+                  name="answer"
+                  value="2"
+                />
+                <label class="question-label" for="question-answer-2"
+                  >Ответ 2</label
+                >
+              </li>
+            </ul>
+            <button class="question-submit" id="question-submit">
+              Ответить
+            </button>
+            <button class="question-next" id="question-next" disabled>
+              Следующий вопрос
+            </button>
+            <button id="style-toggle">Switch theme</button>
+          </div>
+        </div>
+      </article>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
