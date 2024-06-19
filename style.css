@@ -55,9 +55,14 @@ main {
 	--color-answer-checked: #3A668B;
 	--color-correct-answer: #62BE5C;
 	--color-incorrect-answer: #C63B34;
+	--color-not-selected-answer: #ffc507;
 	--color-button: #437FB1;
+	--color-checkbox: #0b76ef;
 	--color-bg-switch-theme: #FFF;
-	--color-switch-theme: #171717
+	--color-switch-theme: #171717;
+
+	--font-size-body: 25px;
+	--border-radius: 10px;
 }
 
 .light-theme {
@@ -68,15 +73,13 @@ main {
 	--color-bg-answer: #73B1F4;
 	--color-bg-hover: #5E9CEA;
 	--color-answer-checked: #4B89DA;
-	--color-correct-answer: #62BE5C;
-	--color-incorrect-answer: #C63B34;
 	--color-button: #73B1F4;
 	--color-bg-switch-theme: #171717;
-	--color-switch-theme: #FFF
+	--color-switch-theme: #FFF;
 }
 
 body {
-	font-size: 25px;
+	font-size: var(--font-size-body);
 	font-family: Arial, Helvetica, sans-serif;
 	color: var(--color-text);
 	background-color: var(--color-bg);
@@ -104,7 +107,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	gap: 20px;
-	border-radius: 10px;
+	border-radius: var(--border-radius);
 	padding: 20px;
 	margin: 20px;
 }
@@ -122,7 +125,7 @@ body {
 	font-size: 30px;
 	font-weight: bold;
 	background-color: var(--color-bg-second);
-	border-radius: 10px;
+	border-radius: var(--border-radius);
 	padding: 10px 5px;
 }
 
@@ -187,9 +190,17 @@ body {
 	background-color: var(--color-incorrect-answer);
 }
 
+.not-selected-answer+.question-label {
+	background-color: var(--color-not-selected-answer);
+}
+
+.not-selected-answer+.question-label:hover {
+	background-color: var(--color-not-selected-answer);
+}
+
 .question-submit,
 .question-next {
-	border-radius: 10px;
+	border-radius: var(--border-radius);
 	width: 100%;
 	height: 42px;
 	font-size: inherit;
@@ -214,7 +225,40 @@ body {
 	font-size: 12px;
 	font-family: inherit;
 	padding: 2px 5px;
-	border-radius: 10px;
+	border-radius: var(--border-radius);
+}
+
+.custom-checkbox {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+
+.custom-checkbox+label {
+	display: inline-flex;
+	align-items: center;
+	user-select: none;
+}
+
+.custom-checkbox+label::before {
+	content: '';
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	flex-shrink: 0;
+	flex-grow: 0;
+	border: 1px solid #fff;
+	border-radius: 0.25em;
+	margin-right: 0.5em;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 50% 50%;
+}
+
+.custom-checkbox:checked+label::before {
+	border-color: var(--color-checkbox);
+	background-color: var(--color-checkbox);
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
 }
 
 @media(max-width: 1023.98px) {
